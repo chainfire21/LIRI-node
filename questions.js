@@ -1,15 +1,16 @@
+const chalk = require("chalk");
 module.exports = {
     array:[
         {
-            type: 'rawlist',
+            type: 'list',
             name: 'choice',
-            message: 'What would you like to do?',
-            choices: ['Find concerts for an artist', 'Check Spotify for a song', 'Get OMDB info on a movie', 'Use the random text file for a demonstration','Exit'],
+            message: chalk`{blueBright What would you like to do?}`,
+            choices: [`Find concerts for an artist`, `Check Spotify for a song`, `Get OMDB info on a movie`, `Use the random text file for a demonstration`,`Exit`],
         },
         {
             type: 'input',
             name: 'concert',
-            message: 'Which artist?',
+            message: chalk`{cyanBright Which artist?}`,
             when: function (answers) {
                 return answers.choice === 'Find concerts for an artist';
             }
@@ -17,7 +18,7 @@ module.exports = {
         {
             type: 'input',
             name: 'song',
-            message: 'What song?',
+            message: chalk`{cyanBright What song?}`,
             when: function (answers) {
                 return answers.choice === 'Check Spotify for a song';
             }
@@ -25,7 +26,7 @@ module.exports = {
         {
             type: 'input',
             name: 'movie',
-            message: 'What movie?',
+            message: chalk`{cyanBright What movie?}`,
             when: function (answers) {
                 return answers.choice === 'Get OMDB info on a movie';
             }
